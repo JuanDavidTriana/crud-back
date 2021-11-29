@@ -7,7 +7,7 @@ var database = require('./config/database');
 var auth = require('./auth/main_auth');
 var cors = require('cors');
 
-var empleadosRouter = require('./routes/empleados.router');
+var crudSimpleRouter = require('./routes/crudSimple.router');
 var usuariosRouter = require('./routes/usuario.router');
 
 var app = express();
@@ -25,10 +25,10 @@ database.mongoConnect();
 
 app.use('/usuarios', usuariosRouter);
 
-app.use(auth);
+//app.use(auth);
 
 //Router
-app.use('/empleados', empleadosRouter);
+app.use('/crudSimple', crudSimpleRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
